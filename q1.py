@@ -4,7 +4,7 @@ import numpy as np
 
 # modify this function, and create other functions below as you wish
 def question01(portfolios):
-    Max=2**4
+    Max=2**16
     pairs=[]
     while(Max>0):
         Max-=1
