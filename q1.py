@@ -15,6 +15,4 @@ def question01(portfolios):
             for y in portfolios:
                 if x==y:
                     answer = Max
-                    print(x)
-                    print(x^Max)
                     return answer
