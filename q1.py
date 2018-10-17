@@ -9,8 +9,8 @@ def question01(portfolios):
 
     for i in x:  
         for j in x:
-                if i!=j:
-                    a=portfolios[i]^portfolios[j]
-                    xor.append(a)
+            a=portfolios[i]^portfolios[j]
+            xor.append(a)
+            
     answer=max(xor)
     return answer
