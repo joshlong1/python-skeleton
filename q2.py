@@ -46,14 +46,15 @@ def question02(cashFlowIn, cashFlowOut):
     subIn=subIn[1:,lenIn]
     subOut=subOut[1:,lenOut]
     match=0
+    cashFlowIn=np.array(cashFlowIn)
+    Srt=np.min(cashFlowIn[np.nonzero(cashFlowIn)])
     
-    
-    while (Diff<MaxIn):
+    for j in range(Srt):
         for i in range(MaxIn-1):
             match=subIn[i] and subOut[i]
             
             if (match==1):
-                answer = Diff
+                answer=Diff
                 return answer
     
         subIn=subIn[1:]
@@ -61,7 +62,5 @@ def question02(cashFlowIn, cashFlowOut):
         Diff+=1
     
     
-    Srt=np.sort(cashFlowIn)
-    answer = Srt[0]
+    answer=Srt
     return answer
-
