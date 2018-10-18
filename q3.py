@@ -18,12 +18,14 @@ def question03(numNodes, edgeList):
 
     for i in range(len(nums)):
         if (nums[i]==nums[i-1]):
-            ct[int(nums[i]-1)]+=1
+            ct[int(nums[i]-1)]=1
             N+=1
             
     for i in range(numNodes):
         if (ct[i]!=0):
             N-=1
+
+
 
     answer = N
     return answer
