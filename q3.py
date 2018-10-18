@@ -4,29 +4,26 @@ import numpy as np
 
 def question03(numNodes, edgeList):
     
-    N=numNodes-len(edgeList)
-    nums=[]
-    for i in edgeList:
-        for j in i:
-            nums.append(j)
-            
+    L=len(edgeList)
+    N=numNodes-L
+    edgeList=np.array(edgeList)
+    nums=np.zeros(2*L)
+    
+    for i in range(L):
+            nums[2*i]=int(edgeList[i,0])
+            nums[2*i+1]=int(edgeList[i,1])
+          
     nums=np.sort(nums)
     ct=np.zeros(numNodes)
-    
+
     for i in range(len(nums)):
         if (nums[i]==nums[i-1]):
-            ct[nums[i]-1]+=1
+            ct[int(nums[i]-1)]+=1
             N+=1
             
-    for i in range(len(ct)):
+    for i in range(numNodes):
         if (ct[i]!=0):
             N-=1
-            print(N)
-            
-    print(nums)
-    print(ct)
-
-
 
     answer = N
     return answer
