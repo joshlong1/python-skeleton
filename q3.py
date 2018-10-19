@@ -6,12 +6,11 @@ def question03(numNodes, edgeList):
     
     L=len(edgeList)
     N=numNodes-L
-    edgeList=np.array(edgeList)
     nums=np.zeros(2*L)
     
     for i in range(L):
-            nums[2*i]=int(edgeList[i,0])
-            nums[2*i+1]=int(edgeList[i,1])
+            nums[2*i]=int(edgeList[i].get('edgeA'))
+            nums[2*i+1]=int(edgeList[i].get('edgeB'))
           
     nums=np.sort(nums)
     ct=np.zeros(numNodes)
