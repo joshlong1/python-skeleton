@@ -6,11 +6,12 @@ import numpy as np
 def question01(portfolios):
     
     xor=[]
+    answer=0
 
     for i in portfolios:  
         for j in portfolios:
             a=i^j
-            xor.append(a)
-            
-    answer=max(xor)
+            if a>answer:
+                answer=a
+          
     return answer
