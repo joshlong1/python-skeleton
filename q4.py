@@ -14,7 +14,6 @@ def question04(rows, numberMachines):
             try:
                 nums=map(int, nums)
                 S.append(sum(nums))
-                print(S)
             except:
                 continue
             
