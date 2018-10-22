@@ -3,16 +3,17 @@
 import numpy as np
 
 def question05(allowedAllocations, totalValue):
-    if (totalValue==0):
-        return 0
-    answer=minAllocation(allowedAllocations,totalValue)
-    return answer
+    minAlloc = [0]*(totalValue+1)
     
-def minAllocation(alloc,tot):
-    res=tot
-    for c in alloc:
-        if (c<=tot):
-            sub_res=minAllocation(alloc,tot-c)
-            if sub_res+1<res:
-                res=sub_res+1
-    return res
+    for i in allowedAllocations:
+        minAlloc[i]=1
+        
+    for k in range(totalValue+1):
+        #allocCount = k
+        for j in [c for c in allowedAllocations if c <= k]:
+            if minAlloc[k-j]+1<=k and minAlloc[k-j]>0:
+                minAlloc[k] = minAlloc[k-j]+1
+     
+    print minAlloc
+    answer=int(minAlloc[totalValue])
+    return answer
