@@ -6,7 +6,8 @@ def question05(allowedAllocations, totalValue):
     minAlloc = [0]*(totalValue+1)
     
     for i in allowedAllocations:
-        minAlloc[i]=1
+        try: minAlloc[i]=1
+        except: continue
         
     for k in range(totalValue+1):
         #allocCount = k
