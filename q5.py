@@ -3,8 +3,11 @@
 import numpy as np
 
 def question05(allowedAllocations, totalValue):
-    minAlloc=np.zeros(totalValue+1)
     
+    if totalValue<=0:
+        return 0
+    
+    minAlloc=np.zeros(totalValue+1)
     for i in allowedAllocations:
         try: minAlloc[i]=1
         except: continue
