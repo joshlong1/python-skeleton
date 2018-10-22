@@ -4,15 +4,22 @@ import numpy as np
 
 def question03(numNodes, edgeList):
     
-    L=len(edgeList)
+    eList=[]
+
+#Filter data for repeats/errors
+    for i in range(len(edgeList)):
+        a=sorted(edgeList[i].values())
+        if a[0]!=a[1]:
+            if a not in eList:
+                eList.append(a)
+            
+    L=len(eList)
     N=numNodes-L
 
-    nums=np.zeros(2*L)
+    nums=[]
     
     for i in range(L):
-            k=list(edgeList[i].values())
-            nums[2*i]=int(k[0])
-            nums[2*i+1]=int(k[1])
+        nums.extend(eList[i])
           
     nums=np.sort(nums)
     ct=np.zeros(numNodes)
@@ -25,8 +32,6 @@ def question03(numNodes, edgeList):
     for i in range(numNodes):
         if (ct[i]!=0):
             N-=1
-
-
 
     answer = N
     return answer
