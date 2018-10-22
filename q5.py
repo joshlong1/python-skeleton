@@ -13,7 +13,6 @@ def question05(allowedAllocations, totalValue):
         for j in [c for c in allowedAllocations if c <= k]:
             if minAlloc[k-j]+1<=k and minAlloc[k-j]>0:
                 minAlloc[k] = minAlloc[k-j]+1
-     
-    print minAlloc
+  
     answer=int(minAlloc[totalValue])
     return answer
