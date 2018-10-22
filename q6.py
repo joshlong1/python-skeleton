@@ -11,6 +11,5 @@ def question06(numServers, targetServer, times):
             if dist<times[t,0]:
                 times[t,0]=dist
             
-    print times
     answer = times[targetServer,0]
     return answer
