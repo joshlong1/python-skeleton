@@ -3,12 +3,24 @@
 import numpy as np
 
 def question06(numServers, targetServer, times):
-  # modify and then return the variable below
-    for node in times:
-        for t in range(len(node)):
-            dist=node[0]+node[t]
-            if dist<times[t][0]:
-                times[t][0]=dist
-            
-    answer = times[targetServer][0]
+    D=[0]+["inf"]*(numServers-1)
+    v=range(numServers)
+    visited=[]
+    j=0
+    print D
+    while len(v)>0:
+        visit = D.index(sorted(D)[j])
+        j+=1
+        v.remove(visit)
+        
+        for i in v:
+            try:
+                dist=D[visit]+times[visit][i]
+                if dist<D[i]:
+                    D[i]=dist
+            except:
+                continue
+                
+    answer=D[targetServer]
     return answer
+            
