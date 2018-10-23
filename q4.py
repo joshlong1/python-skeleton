@@ -4,22 +4,17 @@ import numpy as np
 
 #compute all combinations for two portfolios
 def question04(rows, numberMachines):
-     
+    
     X='X'
-    #rows=np.array(rows)
-    S=[]
+    answer=0
     for i in rows:
         for j in range(len(i)-numberMachines+1):
             nums=i[j:(j+numberMachines)]
             try:
-                nums=map(int, nums)
-                S.append(sum(nums))
+                nums=sum(map(int, nums))
+                if nums<answer or answer==0: 
+                    answer=nums
             except:
                 continue
-            
-    try:        
-        answer =min(S)
-    except:
-        answer=0
-    return answer
 
+    return answer
