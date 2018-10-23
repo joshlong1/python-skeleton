@@ -7,7 +7,6 @@ def question01(portfolios):
     
     xor=[]
     answer=0
-    portfolios=list(set(portfolios))
     for i in range(len(portfolios)):
         b=portfolios[0]
         portfolios.remove(b)
