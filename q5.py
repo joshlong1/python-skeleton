@@ -7,14 +7,11 @@ def question05(allowedAllocations, totalValue):
     if totalValue<=0:
         return 0
     
-    minAlloc=[0 for i in range(totalValue+1)]
-    #allowedAllocations=sorted(allowedAllocations,reverse=1)
+    minAlloc=[0]*(totalValue+1)
     
     for i in allowedAllocations:
         try: minAlloc[i]=1
         except: continue
-    
-    #if minAlloc[totalValue]==1: return 1
         
     for k in range(min(allowedAllocations),totalValue+1):
         for j in [c for c in allowedAllocations if c <= k]:
