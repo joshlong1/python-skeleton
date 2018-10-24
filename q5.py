@@ -7,6 +7,7 @@ def question05(allowedAllocations, totalValue):
     if totalValue<=0:
         return 0
     
+    allowedAllocations=list(set(allowedAllocations))
     minAlloc=[10*totalValue]*(totalValue+1)
     minAlloc[0]=0
         
