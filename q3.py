@@ -11,11 +11,12 @@ def question03(numNodes, edgeList):
 
     for i in range(len(edgeList)):
         a=sorted(edgeList[i].values())
-        if a[0]!=a[1]:
-            if a not in eList:
-                eList.append(a)
-                eCont.extend(a)
-    for i in range(numNodes+1):
+        if a not in eList:
+            if all(elem in nodes for elem in a):
+                if a[0]!=a[1]:
+                    eList.append(a)
+                    eCont.extend(a)
+    for i in nodes:
         if len(eCont)==0:
             answer=numNodes+score
             return answer
@@ -24,9 +25,8 @@ def question03(numNodes, edgeList):
         score-=2
         eCont=[]
         eList=[edge for edge in eList if Rem not in edge]
-        eCont=sum(eList,[])
-                
-                  
+        eCont=sum(eList,[])        
     answer=0
         
     return answer
+    
