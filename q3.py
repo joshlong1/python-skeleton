@@ -3,35 +3,32 @@
 import numpy as np
 
 def question03(numNodes, edgeList):
-    
-    eList=[]
 
-#Filter data for repeats/errors
+    eList=[]
+    eCont=[]
+    nodes=range(1,numNodes+1)
+    score=0
+
     for i in range(len(edgeList)):
         a=sorted(edgeList[i].values())
         if a[0]!=a[1]:
             if a not in eList:
                 eList.append(a)
-            
-    L=len(eList)
-    N=numNodes-L
+                eCont.extend(a)
 
-    nums=[]
-    
-    for i in range(L):
-        nums.extend(eList[i])
-          
-    nums=np.sort(nums)
-    ct=np.zeros(numNodes)
-
-    for i in range(len(nums)):
-        if (nums[i]==nums[i-1]):
-            ct[int(nums[i]-1)]=1
-            N+=1
-            
-    for i in range(numNodes):
-        if (ct[i]!=0):
-            N-=1
-
-    answer = N
+    for i in nodes:
+        Rem=max(eCont,key=eCont.count)
+        score-=2
+        print Rem
+        eCont=[]
+        eList=[edge for edge in eList if Rem not in edge]
+        eCont=sum(eList,[])
+        
+        if len(eCont)==0:
+            answer=numNodes+score
+            return answer
+                
+                  
+    answer=0
+        
     return answer
