@@ -15,7 +15,7 @@ def question03(numNodes, edgeList):
             if a not in eList:
                 eList.append(a)
                 eCont.extend(a)
-    for i in nodes:
+    for i in range(numNodes+1):
         if len(eCont)==0:
             answer=numNodes+score
             return answer
