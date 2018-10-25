@@ -10,10 +10,14 @@ def question04(rows, numberMachines):
     for i in rows:
         for j in range(len(i)-numberMachines+1):
             nums=i[j:(j+numberMachines)]
-            if X in nums:
+            try:
+                nums=sum(nums)
+                if nums<answer: 
+                    answer=nums
+            except:
                 continue
-            t=sum(nums)
-            if t<answer: 
-                    answer=t
-    if answer=="inf": answer=0
+                
+    if answer=="inf":
+        answer=0
+
     return answer
