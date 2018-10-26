@@ -6,18 +6,15 @@ import numpy as np
 def question04(rows, numberMachines):
     
     X='X'
-    answer="inf"
+    answer=0
     for i in rows:
         for j in range(len(i)-numberMachines+1):
             nums=i[j:(j+numberMachines)]
             try:
-                nums=sum(nums)
-                if nums<answer: 
+                nums=sum(map(int, nums))
+                if nums<answer or answer==0: 
                     answer=nums
             except:
                 continue
-                
-    if answer=="inf":
-        answer=0
 
     return answer
