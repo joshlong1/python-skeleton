@@ -7,16 +7,13 @@ def question06(numServers, targetServer, times):
     v=range(numServers)
     visited=[]
     j=0
-    print D
     while len(v)>0:
         visit = D.index(sorted(D)[j])
         j+=1
         v.remove(visit)
         
         for i in v:
-            dist=D[visit]+times[visit][i]
-            if dist<D[i]:
-                D[i]=dist
+            D[i]=min(D[visit]+times[visit][i],D[i])
 
                 
     answer=D[targetServer]
