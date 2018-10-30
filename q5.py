@@ -13,12 +13,8 @@ def question05(allowedAllocations, totalValue):
         
     for k in range(min(allowedAllocations),totalValue+1):
         for j in [c for c in allowedAllocations if c <= k]:
-                if minAlloc[k-j]+1<minAlloc[k]:
-                    minAlloc[k] = minAlloc[k-j]+1
+                minAlloc[k] = min(minAlloc[k-j]+1, minAlloc[k]) 
 
-    if minAlloc[totalValue]>9*totalValue:
-        return 0
-    else:
-        answer=minAlloc[totalValue]
+    answer=0 if minAlloc[totalValue]>9*totalValue else minAlloc[totalValue]
     
     return answer
