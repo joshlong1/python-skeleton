@@ -4,11 +4,19 @@ import numpy as np
 
 #compute all combinations for two portfolios
 def question04(rows, numberMachines):
-    
     X='X'
-    sums=[sum(i[j:(j+numberMachines)]) for i in rows for j in range(len(i)-numberMachines+1) if X not in i[j:(j+numberMachines)]]
-    if sums==[]:
-        return 0
-    answer=min(sums)
-    
+    answer=0
+    for r in rows:
+        window=[]
+        for j in range(len(r)):
+            if r[j]==X:
+                window=[]
+            else:
+                window+=[int(r[j])]
+                if len(window)==numberMachines:
+                    ans=sum(window)
+                    if ans<answer or answer==0: 
+                        answer=ans
+                    window=window[1:]
+                    
     return answer
