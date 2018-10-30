@@ -9,7 +9,6 @@ def question01(portfolios):
     for i in range(L-1):
         for j in range(i+1,L):
             a=portfolios[i]^portfolios[j]
-            if a>answer:
-                answer=a
+            answer=max(a,answer)
           
     return answer
