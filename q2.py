@@ -11,12 +11,11 @@ def question02(cashFlowIn, cashFlowOut):
  
     for i in setIn:
         for j in setOut:
-            diff=abs(i-j)
-            if i+j==0:
-                continue
-            if diff==0:
-                return diff
-            answer=min(diff,answer)
+            if i+j!=0:
+                diff=abs(i-j)
+                if diff==0:
+                    return 0
+                answer=min(diff,answer)
 
             
     return answer
@@ -30,4 +29,3 @@ def powerset(seq):
         for item in powerset(seq[1:]):
             yield [seq[0]]+item
             yield item
-        
