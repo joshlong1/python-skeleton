@@ -8,9 +8,9 @@ def question04(rows, numberMachines):
     answer=0
     for r in rows:
         window=[]
-        if len(r)>=numberMachines:
+        if r.count("X")<=(len(r)-numberMachines):
             for j in range(len(r)):
-                if r[j]=="X" or (r[j]>=answer and answer!=0):
+                if r[j]=="X":
                     window=[]
                 else:
                     window+=[int(r[j])]
