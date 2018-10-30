@@ -4,12 +4,9 @@ import numpy as np
 
 # modify this function, and create other functions below as you wish
 def question01(portfolios):
-    
-    xor=[]
     answer=0
     L=len(portfolios)
-
-    for i in range(L):
+    for i in range(L-1):
         for j in range(i+1,L):
             a=portfolios[i]^portfolios[j]
             if a>answer:
