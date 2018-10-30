@@ -14,21 +14,20 @@ def question02(cashFlowIn, cashFlowOut):
             diff=abs(i-j)
             if i+j==0:
                 continue
-            if diff<answer:
-                answer=diff
-                if answer==0:
-                    return answer
+            if diff==0:
+                return diff
+            answer=min(diff,answer)
 
             
     return answer
     
 def powerset(seq):
 
-    if seq == []:
+    if len(seq) <= 1:
+        yield seq
         yield []
     else:
-        a = seq[0]
-        for tail in powerset(seq[1:]):
-            yield tail
-            yield [a] + tail
+        for item in powerset(seq[1:]):
+            yield [seq[0]]+item
+            yield item
         
