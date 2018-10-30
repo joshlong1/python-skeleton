@@ -10,7 +10,7 @@ def question04(rows, numberMachines):
         window=[]
         if len(r)>=numberMachines:
             for j in range(len(r)):
-                if r[j]=="X":
+                if r[j]=="X" or (r[j]>=answer and answer!=0):
                     window=[]
                 else:
                     window+=[int(r[j])]
