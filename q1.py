@@ -9,7 +9,5 @@ def question01(portfolios):
     for i in range(L-1):
         for j in range(i+1,L):
             answer=max(portfolios[i]^portfolios[j],answer)
-            if answer==2**16-1:
-                return answer
 
     return answer
