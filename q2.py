@@ -5,17 +5,12 @@ import numpy as np
 #compute all combinations for two portfolios
 def question02(cashFlowIn, cashFlowOut):
 
-    setIn=[sum(x) for x in powerset(cashFlowIn)]
-    setOut=[sum(y) for y in powerset(cashFlowOut)]
+    setIn=list({sum(x) for x in powerset(cashFlowIn)})
+    setOut=list({sum(y) for y in powerset(cashFlowOut)})
     answer=1000*100
  
-    for i in setIn:
-        for j in setOut:
-            if i+j!=0:
-                diff=abs(i-j)
-                if diff==0:
-                    return 0
-                answer=min(diff,answer)
+    diff={abs(i-j) for i in setIn for j in setOut if i+j!=0}
+    answer=min(diff)
 
             
     return answer
@@ -29,3 +24,4 @@ def powerset(seq):
         for item in powerset(seq[1:]):
             yield [seq[0]]+item
             yield item
+        
