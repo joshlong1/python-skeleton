@@ -3,17 +3,12 @@
 import numpy as np
 
 def question06(numServers, targetServer, times):
-    D=[0]+["inf"]*(numServers-1)
-    v=range(numServers)
-    visited=[]
-    j=0
-    while j<numServers:
-        visit = D.index(sorted(D)[j])
-        j+=1
-        
-        for i in v:
-            D[i]=min(D[visit]+times[visit][i],D[i])
+  # modify and then return the variable below
 
-                
-    answer=D[targetServer]
+    for node in times:
+        for t in range(len(node)):
+            dist=node[0]+node[t]
+            times[t][0]=min(dist, times[t][0])
+            
+    answer = times[targetServer][0]
     return answer
