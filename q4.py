@@ -9,11 +9,11 @@ def question04(rows, numberMachines):
     for r in rows:
         window=[]
         if r.count("X")<=(len(r)-numberMachines):
-            for j in range(len(r)):
-                if r[j]=="X":
+            for j in r:
+                if j=="X":
                     window=[]
                 else:
-                    window+=[int(r[j])]
+                    window+=[int(j)]
                     if (len(window)==numberMachines):
                         ans=sum(window)
                         answer=ans if answer==0 else min(ans,answer)
