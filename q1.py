@@ -5,6 +5,8 @@ import numpy as np
 # modify this function, and create other functions below as you wish
 def question01(portfolios):
     answer=0
+    if len(portfolios)<2:
+        return 0
     portfolios=list(set(portfolios))
     portfolios=sorted(portfolios,reverse=True)
     bitLengths=[M.bit_length() for M in portfolios]
