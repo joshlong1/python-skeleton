@@ -8,8 +8,8 @@ def question05(allowedAllocations, totalValue):
         return 0
     
     allowedAllocations=list(set(allowedAllocations))
-    minAlloc=[10*totalValue]*(totalValue+1)
-    minAlloc[0]=0
+    allowedAllocations=[x for x in allowedAllocations if x!=0 and x<=totalValue]
+    minAlloc=[0]+[10*totalValue]*(totalValue)
         
     for k in range(min(allowedAllocations),totalValue+1):
         for j in [c for c in allowedAllocations if c <= k]:
